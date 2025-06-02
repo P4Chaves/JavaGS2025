@@ -186,7 +186,7 @@ src/main/java/br/com/queimadas/alertas
 
 ## 🎥 Vídeo
 
-> **Link**: [https://youtu.be/SEU\_VIDEO](https://youtu.be/SEU_VIDEO) — 5 min demonstrando o fluxo completo.
+> **Link**: [https://www.youtube.com/watch?v=VReZhKCbAOs](https://www.youtube.com/watch?v=VReZhKCbAOs) — 5 min demonstrando o fluxo completo.
 
 ---
 
