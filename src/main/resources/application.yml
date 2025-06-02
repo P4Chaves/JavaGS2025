@@ -1,0 +1,65 @@
+###############################################################################
+# PERFIL ATIVO PADRÃO ---------------------------------------------------------
+###############################################################################
+spring:
+  profiles:
+    active: dev          # ← mude para "oracle" quando quiser apontar ao banco FIAP
+
+###############################################################################
+# PERFIL DEV  –  H2 em memória + console web
+###############################################################################
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: jdbc:h2:mem:queimadas;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: update      # cria/atualiza tabelas no startup
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console      # http://localhost:8080/h2-console
+
+server:
+  port: 8080
+
+springdoc:
+  api-docs.path: /api-docs
+  swagger-ui.path: /swagger-ui.html
+
+###############################################################################
+# PERFIL ORACLE  –  banco da FIAP
+###############################################################################
+---
+spring:
+  config:
+    activate:
+      on-profile: oracle
+
+  datasource:
+    url: jdbc:oracle:thin:@ORACLE.FIAP.COM.BR:1521:ORCL
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: RM55988
+    password: 041005          # use sua senha
+
+  jpa:
+    hibernate:
+      ddl-auto: update        # use "validate" se não quiser geração de DDL
+    show-sql: false
+
+server:
+  port: 8080
+
+springdoc:
+  api-docs.path: /api-docs
+  swagger-ui.path: /swagger-ui.html
